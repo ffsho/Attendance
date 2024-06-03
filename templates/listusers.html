@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Users</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <h1>Общий список:</h1>
+    <h2>{{ datetoday }}</h2>
+    <p>Зарегистрировано: {{ totalreg }}</p>
+
+    <div class="user-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Фамилия</th>
+                    <th>Имя</th>
+                    <th>Группа</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(l) %}
+                <tr>
+                    <td>{{ id[i] }}</td>
+                    <td>{{ lastnames[i] }}</td>
+                    <td>{{ names[i] }}</td>
+                    <td>{{ classes[i] }}</td>
+                    <td>
+                        <a href="/deleteuser?user={{ id[i] }}" class="delete-button">Удалить</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="buttons">
+        <button onclick="window.location.href='/add'">Добавить</button>
+        <button onclick="window.location.href='/start'">Отметиться</button>
+        <button onclick="window.location.href='/'">На главную</button>
+    </div>
+</body>
+</html>

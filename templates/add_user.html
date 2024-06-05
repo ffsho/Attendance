@@ -3,63 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New User</title>
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <script src="/static/js/bootstrap.js"></script>
+    <title>Регистрация</title>
 </head>
-<body>
-    <h1>Add New User</h1>
-    <h2>{{ datetoday }}</h2>
-
-    <form method="POST" action="/add">
-        <label for="newusername">Фамилия:</label>
-        <input type="text" id="newuserlastname" name="newuserlastname" required>
-
-        <label for="newusername">Имя:</label>
-        <input type="text" id="newusername" name="newusername" required>
-
-        <select name="newuserclass" id="newuserclass">
-            <option value="">--Please choose an option--</option>
-            <option value="МТ-101">МТ-101</option>
-            <option value="МТ-102">МТ-102</option>
-            <option value="МК-101">МК-101</option>
-            <option value="МК-102">МК-102</option>
-            <option value="МН-101">МН-101</option>
-            <option value="МН-102">МН-102</option>
-            <option value="МП-101">МП-101</option>
-            <option value="МП-102">МП-102</option>
-            <option value="МП-103">МП-103</option>
-
-            <option value="МТ-201">МТ-201</option>
-            <option value="МТ-202">МТ-202</option>
-            <option value="МК-201">МК-201</option>
-            <option value="МК-202">МК-202</option>
-            <option value="МН-201">МН-201</option>
-            <option value="МН-202">МН-202</option>
-            <option value="МП-201">МП-201</option>
-            <option value="МП-202">МП-202</option>
-            <option value="МП-203">МП-203</option>
-
-            <option value="МТ-301">МТ-301</option>
-            <option value="МТ-302">МТ-302</option>
-            <option value="МК-301">МК-301</option>
-            <option value="МК-302">МК-302</option>
-            <option value="МН-301">МН-301</option>
-            <option value="МП-301">МП-301</option>
-            <option value="МП-302">МП-302</option>
-
-            <option value="МТ-401">МТ-401</option>
-            <option value="МК-401">МК-401</option>
-            <option value="МН-401">МН-401</option>
-            <option value="МП-401">МП-401</option>
-            <option value="МП-402">МП-402</option>
-          </select>
-          
-
-        <button type="submit">Добавить</button>
-    </form>
-
-    <div class="buttons">
-        <button onclick="window.location.href='/'">На главную</button>
+<body style="background-color: #D6D6D6;">
+    <section class="intro">
+        <div class="mask d-flex align-items-center h-100">
+          <div class="container min-vh-100 ali">
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card" style="border-radius: 1rem;">
+                  <div class="card-body p-5 text-center">
+      
+                    <div class="my-md-5 pb-5">
+      
+                      <h1 class="fw-bold mb-0">Регистрация</h1>
+                        <br>
+                      <i class="fas fa-user-astronaut fa-3x my-5"></i>
+      
+        <form method="POST" action="/add">
+            <div class="form-outline mb-4">
+                <label for="newuserlastname" class="form-label">Фамилия</label>
+                <input type="text" class="form-control" id="newuserlastname" name="newuserlastname" aria-describedby="text" required>
+            </div>
+            <div class="form-outline mb-5">
+                <label for="newusername" class="form-label">Имя</label>
+                <input type="text" class="form-control" id="newusername" name="newusername" aria-describedby="text" required>
+            </div>
+            <div class="mb-3">
+                <label for="newuserclass" class="form-label">Группа</label>
+                <select class="form-select" name="newuserclass" id="newuserclass">
+                    <option value="">Выберите группу</option>
+                    <option value="МТ-101">МТ-101</option>
+                    <option value="МТ-102">МТ-102</option>
+                    <option value="МК-101">МК-101</option>
+                    <option value="МК-102">МК-102</option>
+                    <option value="МН-101">МН-101</option>
+                    <option value="МН-102">МН-102</option>
+                    <option value="МП-101">МП-101</option>
+                    <option value="МП-102">МП-102</option>
+                    <option value="МП-103">МП-103</option>
+    
+                    <option value="МТ-201">МТ-201</option>
+                    <option value="МТ-202">МТ-202</option>
+                    <option value="МК-201">МК-201</option>
+                    <option value="МК-202">МК-202</option>
+                    <option value="МН-201">МН-201</option>
+                    <option value="МН-202">МН-202</option>
+                    <option value="МП-201">МП-201</option>
+                    <option value="МП-202">МП-202</option>
+                    <option value="МП-203">МП-203</option>
+    
+                    <option value="МТ-301">МТ-301</option>
+                    <option value="МТ-302">МТ-302</option>
+                    <option value="МК-301">МК-301</option>
+                    <option value="МК-302">МК-302</option>
+                    <option value="МН-301">МН-301</option>
+                    <option value="МП-301">МП-301</option>
+                    <option value="МП-302">МП-302</option>
+    
+                    <option value="МТ-401">МТ-401</option>
+                    <option value="МК-401">МК-401</option>
+                    <option value="МН-401">МН-401</option>
+                    <option value="МП-401">МП-401</option>
+                    <option value="МП-402">МП-402</option>
+                </select>
+            </div>
+    
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+        <br>
+        <div class="buttons">
+            <button class="btn btn-secondary" onclick="window.location.href='/'">На главную</button>
+        </div>
     </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
 </body>
 </html>

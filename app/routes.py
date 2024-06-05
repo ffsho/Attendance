@@ -49,8 +49,8 @@ def add():
 @start_bp.route('/start', methods=['GET'])
 def start():
     names, lastnames, classes, times, l = extract_attendance()
-    if 'face_recognition_model.pkl' not in os.listdir('app/static'):
-        return render_template('home.html', names=names, lastnames=lastnames, classes=classes, times=times, l=l, totalreg=totalreg(), datetoday=datetoday, mess='There is no trained model in the static folder. Please add a new face to continue.')
+    if 'face_recognition_model.pkl' not in os.listdir('app/faces_data'):
+        return render_template('home.html', names=names, lastnames=lastnames, classes=classes, times=times, l=l, totalreg=totalreg(), datetoday=datetoday, mess='There is no trained model in the faces_data folder. Please add a new face to continue.')
     start_recognition()
     names, lastnames, classes, times, l = extract_attendance()
     return render_template('home.html', names=names, lastnames=lastnames, classes=classes, times=times, l=l, totalreg=totalreg(), datetoday=datetoday)

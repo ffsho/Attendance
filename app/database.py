@@ -74,7 +74,7 @@ def delete_user(duser):
     )
     db.commit()
 
-    user_dir = os.path.join('app/static/faces', duser)
+    user_dir = os.path.join('app/faces_data/faces', duser)
 
     # Удаление всех файлов в папке
     for filename in os.listdir(user_dir):

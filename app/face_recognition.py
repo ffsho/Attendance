@@ -20,28 +20,28 @@ def extract_faces(img):
 
 # Функция для идентификации лица
 def identify_face(facearray):
-    model = joblib.load('app/static/face_recognition_model.pkl')
+    model = joblib.load('app/faces_data/face_recognition_model.pkl')
     return model.predict(facearray)
 
 # Функция для обучения модели
 def train_model():
-    userlist = os.listdir('app/static/faces')
+    userlist = os.listdir('app/faces_data/faces')
     if len(userlist) == 0:
         clear_userlist()
         return
     faces = []
     labels = []
-    userlist = os.listdir('app/static/faces')
+    userlist = os.listdir('app/faces_data/faces')
     for user in userlist:
-        for imgname in os.listdir(f'app/static/faces/{user}'):
-            img = cv2.imread(f'app/static/faces/{user}/{imgname}')
+        for imgname in os.listdir(f'app/faces_data/faces/{user}'):
+            img = cv2.imread(f'app/faces_data/faces/{user}/{imgname}')
             resized_face = cv2.resize(img, (50, 50))
             faces.append(resized_face.ravel())
             labels.append(user)
     faces = np.array(faces)
     knn = KNeighborsClassifier(n_neighbors=5)
     knn.fit(faces, labels)
-    joblib.dump(knn, 'app/static/face_recognition_model.pkl')
+    joblib.dump(knn, 'app/faces_data/face_recognition_model.pkl')
 
 # Функция для запуска распознавания лиц
 def start_recognition():
@@ -66,7 +66,7 @@ def start_recognition():
 
 # Функция для добавления нового пользователя (с использованием камеры)
 def add_new_user_with_camera(newuserid):
-    userimagefolder = f'app/static/faces/{newuserid}'
+    userimagefolder = f'app/faces_data/faces/{newuserid}'
     if not os.path.isdir(userimagefolder):
         os.makedirs(userimagefolder)
     i, j = 0, 0

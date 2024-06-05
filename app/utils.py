@@ -10,10 +10,10 @@ def create_directories():
         os.makedirs('app/db')
     if not os.path.isdir('app/Attendance'):
         os.makedirs('app/Attendance')
-    if not os.path.isdir('app/static'):
-        os.makedirs('app/static')
-    if not os.path.isdir('app/static/faces'):
-        os.makedirs('app/static/faces')
+    if not os.path.isdir('app/faces_data'):
+        os.makedirs('app/faces_data')
+    if not os.path.isdir('app/faces_data/faces'):
+        os.makedirs('app/faces_data/faces')
     if f'Attendance-{datetoday}.csv' not in os.listdir('app/Attendance'):
         with open(f'app/Attendance/Attendance-{datetoday}.csv', 'w') as f:
             f.write('Id,Name,Lastname,Class,Time')
@@ -22,8 +22,8 @@ def create_directories():
 
 # Функция для получения общего количества зарегистрированных пользователей
 def totalreg():
-    if os.path.isdir('app/static/faces'):
-        return len(os.listdir('app/static/faces'))
+    if os.path.isdir('app/faces_data/faces'):
+        return len(os.listdir('app/faces_data/faces'))
     else:
         return 0
 
@@ -39,9 +39,9 @@ def extract_attendance():
     return names, lastnames, classes, times, l
 
 def clear_userlist():
-    static_path = 'app/static'
-    if os.path.exists(static_path):
-        shutil.rmtree(static_path)  # Удаляет папку и все ее содержимое
-        os.makedirs(static_path)  # Создает пустую папку 'static' заново
+    faces_data_path = 'app/faces_data'
+    if os.path.exists(faces_data_path):
+        shutil.rmtree(faces_data_path)  # Удаляет папку и все ее содержимое
+        os.makedirs(faces_data_path)  # Создает пустую папку 'faces_data' заново
     else:
-        print(f"Папка '{static_path}' не существует.")
+        print(f"Папка '{faces_data_path}' не существует.")
